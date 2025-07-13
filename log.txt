@@ -1,0 +1,836 @@
+.
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── LICENSE.txt
+├── README.md
+├── __pycache__
+│   └── visual_util.cpython-39.pyc
+├── demo_colmap.py
+├── demo_gradio.py
+├── demo_viser.py
+├── docs
+│   └── package.md
+├── examples
+│   ├── kitchen
+│   │   └── images
+│   ├── llff_fern
+│   │   └── images
+│   ├── llff_flower
+│   │   └── images
+│   ├── room
+│   │   └── images
+│   ├── single_cartoon
+│   │   └── images
+│   ├── single_oil_painting
+│   │   └── images
+│   └── videos
+│       ├── Colosseum.mp4
+│       ├── fern.mp4
+│       ├── great_wall.mp4
+│       ├── kitchen.mp4
+│       ├── pyramid.mp4
+│       ├── room.mp4
+│       ├── single_cartoon.mp4
+│       └── single_oil_painting.mp4
+├── input_images_20250712_155901_832053
+│   └── images
+│       ├── 000000.png
+│       ├── 000001.png
+│       ├── 000002.png
+│       ├── 000003.png
+│       ├── 000004.png
+│       ├── 000005.png
+│       ├── 000006.png
+│       ├── 000007.png
+│       ├── 000008.png
+│       ├── 000009.png
+│       ├── 000010.png
+│       ├── 000011.png
+│       ├── 000012.png
+│       ├── 000013.png
+│       ├── 000014.png
+│       ├── 000015.png
+│       ├── 000016.png
+│       ├── 000017.png
+│       ├── 000018.png
+│       ├── 000019.png
+│       ├── 000020.png
+│       ├── 000021.png
+│       ├── 000022.png
+│       ├── 000023.png
+│       ├── 000024.png
+│       ├── 000025.png
+│       ├── 000026.png
+│       ├── 000027.png
+│       ├── 000028.png
+│       ├── 000029.png
+│       └── 000030.png
+├── input_images_20250712_155908_939016
+│   ├── images
+│   │   ├── 000000.png
+│   │   ├── 000001.png
+│   │   ├── 000002.png
+│   │   ├── 000003.png
+│   │   ├── 000004.png
+│   │   ├── 000005.png
+│   │   ├── 000006.png
+│   │   ├── 000007.png
+│   │   ├── 000008.png
+│   │   ├── 000009.png
+│   │   ├── 000010.png
+│   │   ├── 000011.png
+│   │   ├── 000012.png
+│   │   ├── 000013.png
+│   │   ├── 000014.png
+│   │   ├── 000015.png
+│   │   ├── 000016.png
+│   │   ├── 000017.png
+│   │   ├── 000018.png
+│   │   ├── 000019.png
+│   │   ├── 000020.png
+│   │   ├── 000021.png
+│   │   ├── 000022.png
+│   │   ├── 000023.png
+│   │   ├── 000024.png
+│   │   ├── 000025.png
+│   │   ├── 000026.png
+│   │   ├── 000027.png
+│   │   ├── 000028.png
+│   │   ├── 000029.png
+│   │   └── 000030.png
+│   └── predictions.npz
+├── input_images_20250712_160842_323184
+│   └── images
+│       ├── 000000.png
+│       ├── 000001.png
+│       ├── 000002.png
+│       ├── 000003.png
+│       ├── 000004.png
+│       ├── 000005.png
+│       ├── 000006.png
+│       ├── 000007.png
+│       ├── 000008.png
+│       ├── 000009.png
+│       ├── 000010.png
+│       ├── 000011.png
+│       ├── 000012.png
+│       ├── 000013.png
+│       ├── 000014.png
+│       ├── 000015.png
+│       ├── 000016.png
+│       ├── 000017.png
+│       ├── 000018.png
+│       ├── 000019.png
+│       ├── 000020.png
+│       ├── 000021.png
+│       ├── 000022.png
+│       ├── 000023.png
+│       ├── 000024.png
+│       ├── 000025.png
+│       ├── 000026.png
+│       ├── 000027.png
+│       ├── 000028.png
+│       ├── 000029.png
+│       └── 000030.png
+├── input_images_20250712_160845_932505
+│   └── images
+│       ├── 000000.png
+│       ├── 000001.png
+│       ├── 000002.png
+│       ├── 000003.png
+│       ├── 000004.png
+│       ├── 000005.png
+│       ├── 000006.png
+│       ├── 000007.png
+│       ├── 000008.png
+│       ├── 000009.png
+│       ├── 000010.png
+│       ├── 000011.png
+│       ├── 000012.png
+│       ├── 000013.png
+│       ├── 000014.png
+│       ├── 000015.png
+│       ├── 000016.png
+│       ├── 000017.png
+│       ├── 000018.png
+│       ├── 000019.png
+│       ├── 000020.png
+│       ├── 000021.png
+│       ├── 000022.png
+│       ├── 000023.png
+│       ├── 000024.png
+│       ├── 000025.png
+│       ├── 000026.png
+│       ├── 000027.png
+│       ├── 000028.png
+│       ├── 000029.png
+│       └── 000030.png
+├── input_images_20250712_161415_926211
+│   └── images
+│       ├── 000000.png
+│       ├── 000001.png
+│       ├── 000002.png
+│       ├── 000003.png
+│       ├── 000004.png
+│       ├── 000005.png
+│       ├── 000006.png
+│       ├── 000007.png
+│       ├── 000008.png
+│       ├── 000009.png
+│       ├── 000010.png
+│       ├── 000011.png
+│       ├── 000012.png
+│       ├── 000013.png
+│       ├── 000014.png
+│       ├── 000015.png
+│       ├── 000016.png
+│       ├── 000017.png
+│       ├── 000018.png
+│       ├── 000019.png
+│       ├── 000020.png
+│       ├── 000021.png
+│       ├── 000022.png
+│       ├── 000023.png
+│       ├── 000024.png
+│       ├── 000025.png
+│       ├── 000026.png
+│       ├── 000027.png
+│       ├── 000028.png
+│       ├── 000029.png
+│       └── 000030.png
+├── input_images_20250712_161421_056376
+│   ├── images
+│   │   ├── 000000.png
+│   │   ├── 000001.png
+│   │   ├── 000002.png
+│   │   ├── 000003.png
+│   │   ├── 000004.png
+│   │   ├── 000005.png
+│   │   ├── 000006.png
+│   │   ├── 000007.png
+│   │   ├── 000008.png
+│   │   ├── 000009.png
+│   │   ├── 000010.png
+│   │   ├── 000011.png
+│   │   ├── 000012.png
+│   │   ├── 000013.png
+│   │   ├── 000014.png
+│   │   ├── 000015.png
+│   │   ├── 000016.png
+│   │   ├── 000017.png
+│   │   ├── 000018.png
+│   │   ├── 000019.png
+│   │   ├── 000020.png
+│   │   ├── 000021.png
+│   │   ├── 000022.png
+│   │   ├── 000023.png
+│   │   ├── 000024.png
+│   │   ├── 000025.png
+│   │   ├── 000026.png
+│   │   ├── 000027.png
+│   │   ├── 000028.png
+│   │   ├── 000029.png
+│   │   └── 000030.png
+│   └── predictions.npz
+├── input_images_20250712_163421_849012
+│   └── images
+│       ├── 000000.png
+│       ├── 000001.png
+│       ├── 000002.png
+│       ├── 000003.png
+│       ├── 000004.png
+│       ├── 000005.png
+│       ├── 000006.png
+│       ├── 000007.png
+│       ├── 000008.png
+│       ├── 000009.png
+│       ├── 000010.png
+│       ├── 000011.png
+│       ├── 000012.png
+│       ├── 000013.png
+│       ├── 000014.png
+│       ├── 000015.png
+│       ├── 000016.png
+│       ├── 000017.png
+│       ├── 000018.png
+│       ├── 000019.png
+│       ├── 000020.png
+│       ├── 000021.png
+│       ├── 000022.png
+│       ├── 000023.png
+│       ├── 000024.png
+│       ├── 000025.png
+│       ├── 000026.png
+│       ├── 000027.png
+│       ├── 000028.png
+│       ├── 000029.png
+│       └── 000030.png
+├── input_images_20250712_163428_248276
+│   └── images
+│       ├── 000000.png
+│       ├── 000001.png
+│       ├── 000002.png
+│       ├── 000003.png
+│       ├── 000004.png
+│       ├── 000005.png
+│       ├── 000006.png
+│       ├── 000007.png
+│       ├── 000008.png
+│       ├── 000009.png
+│       ├── 000010.png
+│       ├── 000011.png
+│       ├── 000012.png
+│       ├── 000013.png
+│       ├── 000014.png
+│       ├── 000015.png
+│       ├── 000016.png
+│       ├── 000017.png
+│       ├── 000018.png
+│       ├── 000019.png
+│       ├── 000020.png
+│       ├── 000021.png
+│       ├── 000022.png
+│       ├── 000023.png
+│       ├── 000024.png
+│       ├── 000025.png
+│       ├── 000026.png
+│       ├── 000027.png
+│       ├── 000028.png
+│       ├── 000029.png
+│       └── 000030.png
+├── input_images_20250712_163555_416956
+│   └── images
+│       ├── 000000.png
+│       ├── 000001.png
+│       ├── 000002.png
+│       ├── 000003.png
+│       ├── 000004.png
+│       ├── 000005.png
+│       ├── 000006.png
+│       ├── 000007.png
+│       ├── 000008.png
+│       ├── 000009.png
+│       ├── 000010.png
+│       ├── 000011.png
+│       ├── 000012.png
+│       ├── 000013.png
+│       ├── 000014.png
+│       ├── 000015.png
+│       ├── 000016.png
+│       ├── 000017.png
+│       ├── 000018.png
+│       ├── 000019.png
+│       ├── 000020.png
+│       ├── 000021.png
+│       ├── 000022.png
+│       ├── 000023.png
+│       ├── 000024.png
+│       ├── 000025.png
+│       ├── 000026.png
+│       ├── 000027.png
+│       ├── 000028.png
+│       ├── 000029.png
+│       └── 000030.png
+├── input_images_20250712_163601_247476
+│   ├── images
+│   │   ├── 000000.png
+│   │   ├── 000001.png
+│   │   ├── 000002.png
+│   │   ├── 000003.png
+│   │   ├── 000004.png
+│   │   ├── 000005.png
+│   │   ├── 000006.png
+│   │   ├── 000007.png
+│   │   ├── 000008.png
+│   │   ├── 000009.png
+│   │   ├── 000010.png
+│   │   ├── 000011.png
+│   │   ├── 000012.png
+│   │   ├── 000013.png
+│   │   ├── 000014.png
+│   │   ├── 000015.png
+│   │   ├── 000016.png
+│   │   ├── 000017.png
+│   │   ├── 000018.png
+│   │   ├── 000019.png
+│   │   ├── 000020.png
+│   │   ├── 000021.png
+│   │   ├── 000022.png
+│   │   ├── 000023.png
+│   │   ├── 000024.png
+│   │   ├── 000025.png
+│   │   ├── 000026.png
+│   │   ├── 000027.png
+│   │   ├── 000028.png
+│   │   ├── 000029.png
+│   │   └── 000030.png
+│   └── predictions.npz
+├── input_images_20250712_164342_676599
+│   └── images
+│       ├── 000000.png
+│       ├── 000001.png
+│       ├── 000002.png
+│       ├── 000003.png
+│       ├── 000004.png
+│       ├── 000005.png
+│       ├── 000006.png
+│       ├── 000007.png
+│       ├── 000008.png
+│       ├── 000009.png
+│       ├── 000010.png
+│       ├── 000011.png
+│       ├── 000012.png
+│       ├── 000013.png
+│       ├── 000014.png
+│       ├── 000015.png
+│       ├── 000016.png
+│       ├── 000017.png
+│       ├── 000018.png
+│       ├── 000019.png
+│       ├── 000020.png
+│       ├── 000021.png
+│       ├── 000022.png
+│       ├── 000023.png
+│       ├── 000024.png
+│       ├── 000025.png
+│       ├── 000026.png
+│       ├── 000027.png
+│       ├── 000028.png
+│       ├── 000029.png
+│       └── 000030.png
+├── input_images_20250712_164346_298251
+│   ├── glbscene_50_All_maskbFalse_maskwFalse_camTrue_skyFalse_predDepthmap_and_Camera_Branch.glb
+│   ├── images
+│   │   ├── 000000.png
+│   │   ├── 000001.png
+│   │   ├── 000002.png
+│   │   ├── 000003.png
+│   │   ├── 000004.png
+│   │   ├── 000005.png
+│   │   ├── 000006.png
+│   │   ├── 000007.png
+│   │   ├── 000008.png
+│   │   ├── 000009.png
+│   │   ├── 000010.png
+│   │   ├── 000011.png
+│   │   ├── 000012.png
+│   │   ├── 000013.png
+│   │   ├── 000014.png
+│   │   ├── 000015.png
+│   │   ├── 000016.png
+│   │   ├── 000017.png
+│   │   ├── 000018.png
+│   │   ├── 000019.png
+│   │   ├── 000020.png
+│   │   ├── 000021.png
+│   │   ├── 000022.png
+│   │   ├── 000023.png
+│   │   ├── 000024.png
+│   │   ├── 000025.png
+│   │   ├── 000026.png
+│   │   ├── 000027.png
+│   │   ├── 000028.png
+│   │   ├── 000029.png
+│   │   └── 000030.png
+│   └── predictions.npz
+├── input_images_20250712_164754_951687
+│   └── images
+├── input_images_20250712_164843_657696
+│   └── images
+├── input_images_20250712_164924_312083
+│   └── images
+├── input_images_20250713_022229_584042
+│   └── images
+│       ├── 000000.png
+│       ├── 000001.png
+│       ├── 000002.png
+│       ├── 000003.png
+│       ├── 000004.png
+│       ├── 000005.png
+│       ├── 000006.png
+│       ├── 000007.png
+│       ├── 000008.png
+│       ├── 000009.png
+│       ├── 000010.png
+│       ├── 000011.png
+│       └── 000012.png
+├── input_images_20250713_022232_010787
+│   ├── glbscene_50_All_maskbFalse_maskwFalse_camTrue_skyFalse_predDepthmap_and_Camera_Branch.glb
+│   ├── images
+│   │   ├── 000000.png
+│   │   ├── 000001.png
+│   │   ├── 000002.png
+│   │   ├── 000003.png
+│   │   ├── 000004.png
+│   │   ├── 000005.png
+│   │   ├── 000006.png
+│   │   ├── 000007.png
+│   │   ├── 000008.png
+│   │   ├── 000009.png
+│   │   ├── 000010.png
+│   │   ├── 000011.png
+│   │   └── 000012.png
+│   └── predictions.npz
+├── input_images_20250713_022521_808748
+│   └── images
+├── input_images_20250713_022836_705741
+│   ├── glbscene_20_All_maskbFalse_maskwFalse_camTrue_skyFalse_predDepthmap_and_Camera_Branch.glb
+│   ├── images
+│   │   ├── 000000.png
+│   │   ├── 000001.png
+│   │   ├── 000002.png
+│   │   ├── 000003.png
+│   │   ├── 000004.png
+│   │   ├── 000005.png
+│   │   ├── 000006.png
+│   │   ├── 000007.png
+│   │   ├── 000008.png
+│   │   ├── 000009.png
+│   │   ├── 000010.png
+│   │   ├── 000011.png
+│   │   ├── 000012.png
+│   │   ├── 000013.png
+│   │   ├── 000014.png
+│   │   ├── 000015.png
+│   │   ├── 000016.png
+│   │   ├── 000017.png
+│   │   ├── 000018.png
+│   │   ├── 000019.png
+│   │   ├── 000020.png
+│   │   └── 000021.png
+│   └── predictions.npz
+├── input_images_20250713_023104_853259
+│   ├── glbscene_20_All_maskbFalse_maskwFalse_camTrue_skyTrue_predDepthmap_and_Camera_Branch.glb
+│   ├── images
+│   │   └── 000000.png
+│   ├── predictions.npz
+│   └── sky_masks
+│       └── 000000.png
+├── input_images_20250713_023139_375064
+│   ├── glbscene_20_All_maskbFalse_maskwFalse_camTrue_skyTrue_predDepthmap_and_Camera_Branch.glb
+│   ├── images
+│   │   └── 000000.png
+│   ├── predictions.npz
+│   └── sky_masks
+│       └── 000000.png
+├── input_images_20250713_023207_402769
+│   ├── glbscene_5_All_maskbFalse_maskwFalse_camTrue_skyFalse_predDepthmap_and_Camera_Branch.glb
+│   ├── images
+│   │   ├── 000000.png
+│   │   ├── 000001.png
+│   │   ├── 000002.png
+│   │   ├── 000003.png
+│   │   ├── 000004.png
+│   │   ├── 000005.png
+│   │   ├── 000006.png
+│   │   └── 000007.png
+│   └── predictions.npz
+├── input_images_20250713_101115_151846
+│   └── images
+│       ├── 000000.png
+│       ├── 000001.png
+│       ├── 000002.png
+│       ├── 000003.png
+│       ├── 000004.png
+│       ├── 000005.png
+│       ├── 000006.png
+│       ├── 000007.png
+│       ├── 000008.png
+│       ├── 000009.png
+│       ├── 000010.png
+│       ├── 000011.png
+│       ├── 000012.png
+│       ├── 000013.png
+│       ├── 000014.png
+│       ├── 000015.png
+│       ├── 000016.png
+│       ├── 000017.png
+│       ├── 000018.png
+│       ├── 000019.png
+│       ├── 000020.png
+│       ├── 000021.png
+│       ├── 000022.png
+│       ├── 000023.png
+│       ├── 000024.png
+│       ├── 000025.png
+│       ├── 000026.png
+│       ├── 000027.png
+│       ├── 000028.png
+│       ├── 000029.png
+│       └── 000030.png
+├── input_images_20250713_101119_455079
+│   ├── glbscene_50_All_maskbFalse_maskwFalse_camTrue_skyFalse_predDepthmap_and_Camera_Branch.glb
+│   ├── images
+│   │   ├── 000000.png
+│   │   ├── 000001.png
+│   │   ├── 000002.png
+│   │   ├── 000003.png
+│   │   ├── 000004.png
+│   │   ├── 000005.png
+│   │   ├── 000006.png
+│   │   ├── 000007.png
+│   │   ├── 000008.png
+│   │   ├── 000009.png
+│   │   ├── 000010.png
+│   │   ├── 000011.png
+│   │   ├── 000012.png
+│   │   ├── 000013.png
+│   │   ├── 000014.png
+│   │   ├── 000015.png
+│   │   ├── 000016.png
+│   │   ├── 000017.png
+│   │   ├── 000018.png
+│   │   ├── 000019.png
+│   │   ├── 000020.png
+│   │   ├── 000021.png
+│   │   ├── 000022.png
+│   │   ├── 000023.png
+│   │   ├── 000024.png
+│   │   ├── 000025.png
+│   │   ├── 000026.png
+│   │   ├── 000027.png
+│   │   ├── 000028.png
+│   │   ├── 000029.png
+│   │   └── 000030.png
+│   └── predictions.npz
+├── input_images_20250713_101232_314516
+│   └── images
+│       ├── 000000.png
+│       ├── 000001.png
+│       ├── 000002.png
+│       ├── 000003.png
+│       ├── 000004.png
+│       ├── 000005.png
+│       ├── 000006.png
+│       ├── 000007.png
+│       ├── 000008.png
+│       ├── 000009.png
+│       ├── 000010.png
+│       ├── 000011.png
+│       ├── 000012.png
+│       ├── 000013.png
+│       ├── 000014.png
+│       ├── 000015.png
+│       ├── 000016.png
+│       ├── 000017.png
+│       ├── 000018.png
+│       ├── 000019.png
+│       ├── 000020.png
+│       ├── 000021.png
+│       ├── 000022.png
+│       ├── 000023.png
+│       ├── 000024.png
+│       ├── 000025.png
+│       ├── 000026.png
+│       ├── 000027.png
+│       ├── 000028.png
+│       ├── 000029.png
+│       └── 000030.png
+├── input_images_20250713_101235_673807
+│   ├── glbscene_58.6_All_maskbFalse_maskwFalse_camTrue_skyFalse_predDepthmap_and_Camera_Branch.glb
+│   ├── images
+│   │   ├── 000000.png
+│   │   ├── 000001.png
+│   │   ├── 000002.png
+│   │   ├── 000003.png
+│   │   ├── 000004.png
+│   │   ├── 000005.png
+│   │   ├── 000006.png
+│   │   ├── 000007.png
+│   │   ├── 000008.png
+│   │   ├── 000009.png
+│   │   ├── 000010.png
+│   │   ├── 000011.png
+│   │   ├── 000012.png
+│   │   ├── 000013.png
+│   │   ├── 000014.png
+│   │   ├── 000015.png
+│   │   ├── 000016.png
+│   │   ├── 000017.png
+│   │   ├── 000018.png
+│   │   ├── 000019.png
+│   │   ├── 000020.png
+│   │   ├── 000021.png
+│   │   ├── 000022.png
+│   │   ├── 000023.png
+│   │   ├── 000024.png
+│   │   ├── 000025.png
+│   │   ├── 000026.png
+│   │   ├── 000027.png
+│   │   ├── 000028.png
+│   │   ├── 000029.png
+│   │   └── 000030.png
+│   └── predictions.npz
+├── input_images_20250713_101822_428299
+│   └── images
+│       ├── 000000.png
+│       ├── 000001.png
+│       ├── 000002.png
+│       ├── 000003.png
+│       ├── 000004.png
+│       ├── 000005.png
+│       ├── 000006.png
+│       ├── 000007.png
+│       ├── 000008.png
+│       ├── 000009.png
+│       ├── 000010.png
+│       ├── 000011.png
+│       ├── 000012.png
+│       ├── 000013.png
+│       ├── 000014.png
+│       ├── 000015.png
+│       ├── 000016.png
+│       ├── 000017.png
+│       ├── 000018.png
+│       ├── 000019.png
+│       ├── 000020.png
+│       ├── 000021.png
+│       ├── 000022.png
+│       ├── 000023.png
+│       ├── 000024.png
+│       ├── 000025.png
+│       ├── 000026.png
+│       ├── 000027.png
+│       ├── 000028.png
+│       ├── 000029.png
+│       └── 000030.png
+├── input_images_20250713_101825_922470
+│   ├── glbscene_50_All_maskbFalse_maskwFalse_camTrue_skyFalse_predDepthmap_and_Camera_Branch.glb
+│   ├── images
+│   │   ├── 000000.png
+│   │   ├── 000001.png
+│   │   ├── 000002.png
+│   │   ├── 000003.png
+│   │   ├── 000004.png
+│   │   ├── 000005.png
+│   │   ├── 000006.png
+│   │   ├── 000007.png
+│   │   ├── 000008.png
+│   │   ├── 000009.png
+│   │   ├── 000010.png
+│   │   ├── 000011.png
+│   │   ├── 000012.png
+│   │   ├── 000013.png
+│   │   ├── 000014.png
+│   │   ├── 000015.png
+│   │   ├── 000016.png
+│   │   ├── 000017.png
+│   │   ├── 000018.png
+│   │   ├── 000019.png
+│   │   ├── 000020.png
+│   │   ├── 000021.png
+│   │   ├── 000022.png
+│   │   ├── 000023.png
+│   │   ├── 000024.png
+│   │   ├── 000025.png
+│   │   ├── 000026.png
+│   │   ├── 000027.png
+│   │   ├── 000028.png
+│   │   ├── 000029.png
+│   │   └── 000030.png
+│   └── predictions.npz
+├── input_images_20250713_102345_326272
+│   ├── glbscene_50_All_maskbFalse_maskwFalse_camTrue_skyFalse_predDepthmap_and_Camera_Branch.glb
+│   ├── images
+│   │   ├── DJI_0054.JPG
+│   │   ├── DJI_0055.JPG
+│   │   └── DJI_0056.JPG
+│   └── predictions.npz
+├── input_images_20250713_102626_073948
+│   ├── glbscene_15_All_maskbFalse_maskwFalse_camTrue_skyFalse_predDepthmap_and_Camera_Branch.glb
+│   ├── images
+│   │   └── 000000.png
+│   └── predictions.npz
+├── input_images_20250713_102735_460648
+│   ├── glbscene_15_All_maskbFalse_maskwFalse_camTrue_skyFalse_predDepthmap_and_Camera_Branch.glb
+│   ├── images
+│   │   └── 1.jpg
+│   └── predictions.npz
+├── input_images_20250713_102831_886886
+│   ├── glbscene_15_All_maskbFalse_maskwFalse_camTrue_skyFalse_predDepthmap_and_Camera_Branch.glb
+│   ├── images
+│   │   └── 646889.jpg
+│   └── predictions.npz
+├── log.txt
+├── pyproject.toml
+├── requirements.txt
+├── requirements_demo.txt
+├── skyseg.onnx
+├── test.py
+├── training
+│   ├── README.md
+│   ├── __init__.py
+│   ├── config
+│   │   ├── default.yaml
+│   │   └── default_dataset.yaml
+│   ├── data
+│   │   ├── __init__.py
+│   │   ├── augmentation.py
+│   │   ├── base_dataset.py
+│   │   ├── composed_dataset.py
+│   │   ├── dataset_util.py
+│   │   ├── datasets
+│   │   ├── dynamic_dataloader.py
+│   │   ├── preprocess
+│   │   ├── track_util.py
+│   │   └── worker_fn.py
+│   ├── launch.py
+│   ├── loss.py
+│   ├── train_utils
+│   │   ├── __init__.py
+│   │   ├── checkpoint.py
+│   │   ├── distributed.py
+│   │   ├── freeze.py
+│   │   ├── general.py
+│   │   ├── gradient_clip.py
+│   │   ├── logging.py
+│   │   ├── normalization.py
+│   │   ├── optimizer.py
+│   │   └── tb_writer.py
+│   └── trainer.py
+├── vggt
+│   ├── dependency
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   ├── distortion.py
+│   │   ├── np_to_pycolmap.py
+│   │   ├── projection.py
+│   │   ├── track_modules
+│   │   ├── track_predict.py
+│   │   ├── vggsfm_tracker.py
+│   │   └── vggsfm_utils.py
+│   ├── heads
+│   │   ├── __pycache__
+│   │   ├── camera_head.py
+│   │   ├── dpt_head.py
+│   │   ├── head_act.py
+│   │   ├── track_head.py
+│   │   ├── track_modules
+│   │   └── utils.py
+│   ├── layers
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   ├── attention.py
+│   │   ├── block.py
+│   │   ├── drop_path.py
+│   │   ├── layer_scale.py
+│   │   ├── mlp.py
+│   │   ├── patch_embed.py
+│   │   ├── rope.py
+│   │   ├── swiglu_ffn.py
+│   │   └── vision_transformer.py
+│   ├── models
+│   │   ├── __pycache__
+│   │   ├── aggregator.py
+│   │   └── vggt.py
+│   └── utils
+│       ├── __pycache__
+│       ├── geometry.py
+│       ├── helper.py
+│       ├── load_fn.py
+│       ├── pose_enc.py
+│       ├── rotation.py
+│       └── visual_track.py
+└── visual_util.py
+
+101 directories, 732 files
