@@ -85,15 +85,36 @@ def run_model(target_dir, model) -> dict:
         if isinstance(predictions[key], torch.Tensor):
             predictions[key] = predictions[key].cpu().numpy().squeeze(0)  # remove batch dimension
 
+    # If pose_enc_list exists, convert its tensors to numpy
+    if "pose_enc_list" in predictions:
+        predictions["pose_enc_list"] = [t.cpu().numpy() for t in predictions["pose_enc_list"]]
+
     # Generate world points from depth map
     print("Computing world points from depth map...")
     depth_map = predictions["depth"]  # (S, H, W, 1)
     world_points = unproject_depth_map_to_point_map(depth_map, predictions["extrinsic"], predictions["intrinsic"])
-    predictions["world_points_from_depth"] = world_points
+    if isinstance(world_points, torch.Tensor):
+        predictions["world_points_from_depth"] = world_points.cpu().numpy()
+    else:
+        predictions["world_points_from_depth"] = world_points
 
     # Clean up
     torch.cuda.empty_cache()
+    #----------------------
+    print("\n===========Prediction content types===========")
+    for k,v in predictions.items():
+        print(f"{k}: {type(v)}")
+        if isinstance(v,(dict,list)):
+            print(f"  -> nested content:")
+            if isinstance(v, dict):
+                for kk, vv in v.items():
+                    print(f"    {kk}:{type(vv)}")
+            if isinstance(v, list):
+                for idx, vv in enumerate(v):
+                    print(f"    [{idx}]:{type(vv)}")
+    print("===================================\n")
     return predictions
+    
 
 
 # -------------------------------------------------------------------------
@@ -124,18 +145,22 @@ def handle_uploads(input_video, input_images):
     # --- Handle images ---
     if input_images is not None:
         for file_data in input_images:
-            if isinstance(file_data, dict) and "name" in file_data:
-                file_path = file_data["name"]
+            if hasattr(file_data, "name"):
+                #Gradio UploadedFile or _TemporaryFileWrapper
+                filename = os.path.basename(file_data.name)
+                dst_path = os.path.join(target_dir_images, filename)
+                shutil.copy(file_data.name, dst_path)
+                image_paths.append(dst_path)
             else:
-                file_path = file_data
-            dst_path = os.path.join(target_dir_images, os.path.basename(file_path))
-            shutil.copy(file_path, dst_path)
-            image_paths.append(dst_path)
+                # If it is a string path
+                dst_path = os.path.join(target_dir_images, os.path.basename(file_data))
+                shutil.copy(file_data, dst_path)
+                image_paths.append(dst_path)
 
     # --- Handle video ---
     if input_video is not None:
-        if isinstance(input_video, dict) and "name" in input_video:
-            video_path = input_video["name"]
+        if hasattr(input_video, "name"):
+            video_path = input_video.name
         else:
             video_path = input_video
 
@@ -226,6 +251,8 @@ def gradio_demo(
         f"glbscene_{conf_thres}_{frame_filter.replace('.', '_').replace(':', '').replace(' ', '_')}_maskb{mask_black_bg}_maskw{mask_white_bg}_cam{show_cam}_sky{mask_sky}_pred{prediction_mode.replace(' ', '_')}.glb",
     )
 
+    glbfile = os.path.abspath(glbfile)
+
     # Convert predictions to GLB
     glbscene = predictions_to_glb(
         predictions,
@@ -249,8 +276,7 @@ def gradio_demo(
     print(f"Total time: {end_time - start_time:.2f} seconds (including IO)")
     log_msg = f"Reconstruction Success ({len(all_files)} frames). Waiting for visualization."
 
-    return glbfile, log_msg, gr.Dropdown(choices=frame_filter_choices, value=frame_filter, interactive=True)
-
+    return glbfile, log_msg, frame_filter_choices, frame_filter
 
 # -------------------------------------------------------------------------
 # 5) Helper functions for UI resets + re-visualization
@@ -308,6 +334,8 @@ def update_visualization(
         f"glbscene_{conf_thres}_{frame_filter.replace('.', '_').replace(':', '').replace(' ', '_')}_maskb{mask_black_bg}_maskw{mask_white_bg}_cam{show_cam}_sky{mask_sky}_pred{prediction_mode.replace(' ', '_')}.glb",
     )
 
+    glbfile = os.path.abspath(glbfile)
+
     if not os.path.exists(glbfile):
         glbscene = predictions_to_glb(
             predictions,
@@ -342,7 +370,7 @@ pyramid_video = "examples/videos/pyramid.mp4"
 # -------------------------------------------------------------------------
 # 6) Build Gradio UI
 # -------------------------------------------------------------------------
-theme = gr.themes.Ocean()
+theme = gr.themes.Monochrome()
 theme.set(
     checkbox_label_background_fill_selected="*button_primary_background_fill",
     checkbox_label_text_color_selected="*button_primary_text_color",
@@ -392,6 +420,8 @@ with gr.Blocks(
     # Instead of gr.State, we use a hidden Textbox:
     is_example = gr.Textbox(label="is_example", visible=False, value="None")
     num_images = gr.Textbox(label="num_images", visible=False, value="None")
+    frame_filter_choices_output = gr.State()
+    frame_filter_value_output = gr.State()
 
     gr.HTML(
         """
@@ -559,7 +589,11 @@ with gr.Blocks(
             mask_sky,
             prediction_mode,
         ],
-        outputs=[reconstruction_output, log_output, frame_filter],
+        outputs=[reconstruction_output, log_output, frame_filter_choices_output, frame_filter_value_output],
+    ).then(
+        fn=lambda choices, value: gr.Dropdown.update(choices=choices, value=value, interactive=True),
+        inputs=[frame_filter_choices_output, frame_filter_value_output],
+        outputs=frame_filter,
     ).then(
         fn=lambda: "False", inputs=[], outputs=[is_example]  # set is_example to "False"
     )
